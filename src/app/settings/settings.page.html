@@ -8,14 +8,38 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
- 
-<ion-content padding>
-  <h1>Get Location</h1>
- 
-  <div *ngIf="geoLatitude">
-    <p>Latitude : {{geoLatitude}}</p>
-    <p>Longitude : {{geoLongitude}}</p>
-    <p>Accuracy : {{geoAccuracy}}</p>
-  </div>
- 
+
+<ion-content>
+  <ion-list class="container" lines="none">
+    <ion-list-header>
+      <ion-label>Your current location</ion-label>
+    </ion-list-header>
+    <div *ngIf="geoLatitude">
+    <ion-item>
+      <ion-icon name="globe" slot="start"></ion-icon>
+      <p>Latitude: </p>
+      <div class="item-note" slot="end"><p>{{geoLatitude}}</p></div>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="globe" slot="start"></ion-icon>
+      <p>Longitude: </p>
+      <div class="item-note" slot="end"><p>{{geoLongitude}}</p></div>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="locate" slot="start"></ion-icon>
+      <p>Accuracy: </p>
+      <div class="item-note" slot="end"><p>{{geoAccuracy}}</p></div>
+    </ion-item>
+    </div>
+
+
+
+  </ion-list>
+  <!--
+    <div *ngIf="selectedItem" padding>
+      You navigated here from <b>{{selectedItem.title }}</b>
+    </div>
+  -->
 </ion-content>

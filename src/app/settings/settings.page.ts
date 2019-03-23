@@ -13,11 +13,11 @@ export class SettingsPage implements OnInit {
   geoLatitude: number;
   geoLongitude: number;
   geoAccuracy:number;
- 
-  watchLocationUpdates:any; 
+
+  watchLocationUpdates:any;
   loading:any;
   isWatching:boolean;
- 
+
   //Geocoder configuration
   geoencoderOptions: NativeGeocoderOptions = {
     useLocale: true,
@@ -33,8 +33,8 @@ export class SettingsPage implements OnInit {
   public ionViewWillEnter(): void {
     this.geolocation.getCurrentPosition().then((resp) => {
         this.geoLatitude = resp.coords.latitude;
-        this.geoLongitude = resp.coords.longitude; 
-        this.geoAccuracy = resp.coords.accuracy; 
+        this.geoLongitude = resp.coords.longitude;
+        this.geoAccuracy = resp.coords.accuracy;
        }).catch((error) => {
          alert('Error getting location'+ JSON.stringify(error));
        });

@@ -1,5 +1,7 @@
 {
   "name": "PolluApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

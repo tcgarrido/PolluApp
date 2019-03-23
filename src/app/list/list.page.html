@@ -4,20 +4,77 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      List
+      Information
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
+  <ion-list class="container" lines="none">
+    <ion-list-header>
+      <ion-label>Parameters we use to estimate your pollution intake:</ion-label>
+    </ion-list-header>
+
+    <ion-list-header>
+      <ion-label>Contamination levels (ug/m3)</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon name="warning" slot="start"></ion-icon>
+      Good
+      <div class="item-note" slot="end">0 - 150</div>
     </ion-item>
+    <ion-item>
+      <ion-icon name="warning" slot="start"></ion-icon>
+      Regular
+      <div class="item-note" slot="end">150 - 195</div>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="warning" slot="start"></ion-icon>
+      Alert
+      <div class="item-note" slot="end">195 - 240</div>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="warning" slot="start"></ion-icon>
+      Preemergency
+      <div class="item-note" slot="end">240 - 330</div>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="warning" slot="start"></ion-icon>
+      Emergency
+      <div class="item-note" slot="end"> > 330</div>
+    </ion-item>
+
+    <ion-list-header>
+      <ion-label>Levels per person (ug/day)</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon name="man" slot="start"></ion-icon>
+      Good
+      <div class="item-note" slot="end">0 - 3498</div>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="man" slot="start"></ion-icon>
+      Regular
+      <div class="item-note" slot="end">3498 - 4548</div>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="man" slot="start"></ion-icon>
+      Alert
+      <div class="item-note" slot="end">4548 - 5597</div>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="man" slot="start"></ion-icon>
+      Preemergency
+      <div class="item-note" slot="end">5597 - 7696</div>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="man" slot="start"></ion-icon>
+      Emergency
+      <div class="item-note" slot="end"> > 7696</div>
+    </ion-item>
+
   </ion-list>
   <!--
     <div *ngIf="selectedItem" padding>

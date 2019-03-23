@@ -4,17 +4,13 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Settings
+      Location
     </ion-title>
   </ion-toolbar>
 </ion-header>
  
 <ion-content padding>
   <h1>Get Location</h1>
- 
-  <ion-button (click)="getGeolocation()">
-    Get Location
-  </ion-button>
  
   <div *ngIf="geoLatitude">
     <p>Latitude : {{geoLatitude}}</p>

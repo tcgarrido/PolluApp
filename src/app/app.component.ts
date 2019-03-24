@@ -19,15 +19,15 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Information',
-      url: '/list',
-      icon: 'list'
+      title: 'Location details',
+      url: '/settings',
+      icon: 'pin'
     },
     {
-      title: 'Settings',
-      url: '/settings',
-      icon: 'settings'
-    }
+      title: 'Information',
+      url: '/list',
+      icon: 'help-circle'
+    },
   ];
 
   constructor(

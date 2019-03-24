@@ -45,7 +45,7 @@ export class ClockService {
     console.log(this.x)
     this.value = this.minutes*this.mul*this.x
     this.totalPollution += this.value
-    }
+  }
 
   Linear(AQIhigh, AQIlow, Conchigh, Conclow, Concentration) {
     let linear;

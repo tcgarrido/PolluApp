@@ -41,16 +41,16 @@ export class HomePage {
         this.color = '#ffce00'
         this.status = 'Moderate'
       } else if (154 < this.val.data.current.pollution.aqius && this.val.data.current.pollution.aqius <= 254) {
-        this.color = '#000000'
+        this.color = '#fd6a02'
         this.status = 'Unhealthy I'
       } else if (254 < this.val.data.current.pollution.aqius && this.val.data.current.pollution.aqius <= 354) {
-        this.color = '#000000'
+        this.color = '#ea001f'
         this.status = 'Unhealthy II'
       } else if (354 < this.val.data.current.pollution.aqius && this.val.data.current.pollution.aqius <= 424) {
-        this.color = '#000000'
+        this.color = '#ba015a'
         this.status = 'Very unhealthy'
       } else if (this.val.data.current.pollution.aqius > 424) {
-        this.color = '#000000'
+        this.color = '#6900ba'
         this.status = 'Hazardous'
       }
 
@@ -59,6 +59,12 @@ export class HomePage {
 
   startClock(){
     this.ClockService.start()
+  }
+
+  restartClock(){
+    this.ClockService.restart()
+    this.ClockService.changeState('med', this.val.data.current.pollution.aqius)
+    this.totPollution = 0;
   }
 
   triggerSum(state){

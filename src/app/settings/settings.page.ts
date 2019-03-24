@@ -41,12 +41,7 @@ export class SettingsPage implements OnInit {
     this.geoAccuracy = this.pollutionService.accur;
     console.log(this.pollutionService)
     this.pollutionService.getPollution(this.geoLatitude, this.geoLongitude).subscribe(val => {
-      console.log(val)
-      if (val && val.data) {
-        this.val = val.data.current.pollution.aqius
-      } else {
-        this.val = 0
-      }
+      this.val = val === null ? {} : val['data'].current.pollution.aqius
     })
   }
 }

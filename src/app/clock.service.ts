@@ -21,11 +21,17 @@ export class ClockService {
     this.initialDate = new Date()
   }
 
+  restart() {
+    this.state = 'med'
+    this.initialDate = new Date()
+    this.totalPollution = 0
+  }
+
   changeState(state, pollution) {
     this.currentDate = new Date()
     this.difference = this.currentDate - this.initialDate
     this.initialDate = this.currentDate
-    this.minutes = this.difference / (1000)
+    this.minutes = this.difference / (5*1000)
 
     if (this.state == 'med') {
       this.mul = 0.01666

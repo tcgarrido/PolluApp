@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      PolluApp
+      <ion-img style="width: 60%; margin-left: auto; margin-right: auto;" src="/assets/logo.png"></ion-img>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,7 +13,7 @@
     <ion-card class="welcome-card" style="padding: 0px; margin-bottom: 5px;">
       <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
       <ion-card-header style="padding-top: 10px; padding-bottom: 10px;">
-        <ion-card-subtitle class="container label" [ngStyle]="{'background-color': color}">{{status}} air quality</ion-card-subtitle>
+        <ion-card-subtitle class="container label" [ngStyle]="{'background-color': color}">{{status}}</ion-card-subtitle>
         <ion-card-title class="highlight">Current air quality index:</ion-card-title>
         <ion-card-title class="highlight2">{{val.data.current.pollution.aqius}} ug/m3</ion-card-title><br>
         <ion-card-title class="highlight">Today's pollution intake:</ion-card-title>
@@ -26,9 +26,16 @@
 
     <ion-list class="container" lines="none">
       <ion-item>
-        <ion-button (click)='startClock()' style="margin-bottom: 15px; margin-top: 15px;" color="medium" shape="round">
+        <ion-button (click)='startClock()' style="margin-bottom: 0px; margin-top: 15px;" color="medium" shape="round">
           <ion-icon slot="start" name="flag"></ion-icon>
           Start tracking
+        </ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-button (click)='restartClock()' color="medium" shape="round">
+          <ion-icon slot="start" name="refresh"></ion-icon>
+          Reset tracking
         </ion-button>
       </ion-item>
 

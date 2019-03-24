@@ -33,7 +33,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-button (click)='restartClock()' color="medium" shape="round">
+        <ion-button (click)='restartClock()' [disabled]='!buttonStatus' color="medium" shape="round">
           <ion-icon slot="start" name="refresh"></ion-icon>
           Reset tracking
         </ion-button>
@@ -44,21 +44,21 @@
       </ion-list-header>
 
       <ion-item>
-        <ion-button (click)='triggerSum("low")' color="secondary" shape="round">
+        <ion-button (click)='triggerSum("low")' [disabled]='!buttonStatus'  color="secondary" shape="round">
           <ion-icon slot="start" name="cloudy-night"></ion-icon>
            Low Intensity
         </ion-button>
       </ion-item>
 
       <ion-item>
-        <ion-button (click)='triggerSum("med")' color="primary" shape="round">
+        <ion-button (click)='triggerSum("med")' [disabled]='!buttonStatus' color="primary" shape="round">
           <ion-icon slot="start" name="briefcase"></ion-icon>
            Moderate Intensity
         </ion-button>
       </ion-item>
 
       <ion-item>
-        <ion-button (click)='triggerSum("high")' ion-button color="danger" shape="round">
+        <ion-button (click)='triggerSum("high")' [disabled]='!buttonStatus' ion-button color="danger" shape="round">
         <ion-icon slot="start" name="bicycle"></ion-icon>
          High Intensity
       </ion-button>

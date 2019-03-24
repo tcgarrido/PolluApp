@@ -20,6 +20,6 @@ export class PollutionService {
   public getPollution(lat, lon){
     lat = lat.toFixed(1)
     lon = lon.toFixed(1)
-    return this.http.get(`https://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=J5ywh25cr8PXXHCHo`)
+    return this.http.get(`https://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lon}&key=65tyDFt3CPdfeCok4`)
   }
 }

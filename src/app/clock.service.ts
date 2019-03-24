@@ -33,17 +33,19 @@ export class ClockService {
     this.initialDate = this.currentDate
     this.minutes = this.difference / (5*1000)
 
-    if (this.state == 'med') {
+    if (state == 'med') {
       this.mul = 0.01666
-    } else if (this.state == 'low'){
+    } else if (state == 'low'){
       this.mul = 0.006
-    } else if (this.state == 'high'){
+    } else if (state == 'high'){
       this.mul = 0.075
     }
 
     this.x = this.AQIPM10(pollution)
-    console.log(this.x)
     this.value = this.minutes*this.mul*this.x
+    console.log(this.value)
+    console.log(this.mul)
+    console.log(this.x)
     this.totalPollution += this.value
   }
 

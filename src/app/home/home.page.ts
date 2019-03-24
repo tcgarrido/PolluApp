@@ -15,6 +15,8 @@ export class HomePage {
   geoAccuracy: number;
   totPollution: number;
 
+  public timeoutId
+  public state
   public val
   public buttonStatus = false;
 
@@ -58,18 +60,27 @@ export class HomePage {
     })
   }
 
+  initRefresh() {
+  this.triggerSum(this.state);
+  this.timeoutId = setInterval(() => this.triggerSum(this.state), 1000);
+  }
+
   startClock(){
     this.ClockService.start()
     this.buttonStatus = true;
+    this.state = 'med'
+    this.initRefresh();
   }
 
   restartClock(){
     this.ClockService.restart()
+    this.state = 'med'
     this.ClockService.changeState('med', this.val.data.current.pollution.aqius)
     this.totPollution = 0;
   }
 
   triggerSum(state){
+    this.state = state
     this.ClockService.changeState(state, this.val.data.current.pollution.aqius)
     this.totPollution = this.ClockService.totalPollution;
   }

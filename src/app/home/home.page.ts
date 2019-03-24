@@ -20,17 +20,22 @@ export class HomePage {
   constructor(
     private pollutionService: PollutionService,
     private geolocation: Geolocation,
-    private ClockService: ClockService
+
+    private ClockService: ClockService,
+
   ) {}
 
   color = '#ffffff'
   status = ''
+  
+  
 
   ionViewWillEnter() {
     this.geoLatitude = this.pollutionService.geolat;
     this.geoLongitude = this.pollutionService.geolon;
     this.geoAccuracy = this.pollutionService.accur;
     this.totPollution = this.ClockService.totalPollution;
+
     console.log(this.pollutionService)
     this.pollutionService.getPollution(this.geoLatitude, this.geoLongitude).subscribe(val => {
       this.val = val
@@ -57,17 +62,26 @@ export class HomePage {
     })
   }
 
-  startClock(){
+  initRefresh() {
+    this.triggerSum(this.state);
+    this.timeoutId = setInterval(() => this.triggerSum(this.state), 1000);
+  }
+
+  startClock(){  
     this.ClockService.start()
+    this.state = 'med'
+    this.initRefresh();
   }
 
   restartClock(){
     this.ClockService.restart()
+    this.state = 'med'
     this.ClockService.changeState('med', this.val.data.current.pollution.aqius)
     this.totPollution = 0;
   }
 
   triggerSum(state){
+    this.state = state
     this.ClockService.changeState(state, this.val.data.current.pollution.aqius)
     this.totPollution = this.ClockService.totalPollution;
   }

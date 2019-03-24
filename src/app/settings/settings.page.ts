@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
-
+import { PollutionService } from '../pollution.service'
 
 @Component({
   selector: 'app-settings',
@@ -13,6 +13,8 @@ export class SettingsPage implements OnInit {
   geoLatitude: number;
   geoLongitude: number;
   geoAccuracy:number;
+
+  public val
 
   watchLocationUpdates:any;
   loading:any;
@@ -25,18 +27,26 @@ export class SettingsPage implements OnInit {
   };
   constructor(
     private geolocation: Geolocation,
-    private nativeGeocoder: NativeGeocoder
+    private nativeGeocoder: NativeGeocoder,
+    private pollutionService: PollutionService
   ) {
 }
 
+  ngOnInit() {}
+
 //Get current coordinates of device
-  public ionViewWillEnter(): void {
-    this.geolocation.getCurrentPosition().then((resp) => {
-        this.geoLatitude = resp.coords.latitude;
-        this.geoLongitude = resp.coords.longitude;
-        this.geoAccuracy = resp.coords.accuracy;
-       }).catch((error) => {
-         alert('Error getting location'+ JSON.stringify(error));
-       });
+  ionViewWillEnter() {
+    this.geoLatitude = this.pollutionService.geolat;
+    this.geoLongitude = this.pollutionService.geolon;
+    this.geoAccuracy = this.pollutionService.accur;
+    console.log(this.pollutionService)
+    this.pollutionService.getPollution(this.geoLatitude, this.geoLongitude).subscribe(val => {
+      console.log(val)
+      if (val && val.data) {
+        this.val = val.data.current.pollution.aqius
+      } else {
+        this.val = 0
+      }
+    })
   }
 }

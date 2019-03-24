@@ -16,6 +16,7 @@ export class HomePage {
   totPollution: number;
 
   public val
+  public buttonStatus = false;
 
   constructor(
     private pollutionService: PollutionService,
@@ -71,6 +72,8 @@ export class HomePage {
     this.ClockService.start()
     this.state = 'med'
     this.initRefresh();
+    this.buttonStatus = true;
+
   }
 
   restartClock(){
